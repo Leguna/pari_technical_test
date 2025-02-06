@@ -25,6 +25,7 @@ mixin _$ItemState {
     required TResult Function() empty,
     required TResult Function(String message) error,
     required TResult Function(String message) success,
+    required TResult Function(String message) deleted,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -36,6 +37,7 @@ mixin _$ItemState {
     TResult? Function()? empty,
     TResult? Function(String message)? error,
     TResult? Function(String message)? success,
+    TResult? Function(String message)? deleted,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -47,6 +49,7 @@ mixin _$ItemState {
     TResult Function()? empty,
     TResult Function(String message)? error,
     TResult Function(String message)? success,
+    TResult Function(String message)? deleted,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -59,6 +62,7 @@ mixin _$ItemState {
     required TResult Function(_Empty value) empty,
     required TResult Function(_Error value) error,
     required TResult Function(_Success value) success,
+    required TResult Function(_Deleted value) deleted,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -70,6 +74,7 @@ mixin _$ItemState {
     TResult? Function(_Empty value)? empty,
     TResult? Function(_Error value)? error,
     TResult? Function(_Success value)? success,
+    TResult? Function(_Deleted value)? deleted,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -81,6 +86,7 @@ mixin _$ItemState {
     TResult Function(_Empty value)? empty,
     TResult Function(_Error value)? error,
     TResult Function(_Success value)? success,
+    TResult Function(_Deleted value)? deleted,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -154,6 +160,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function() empty,
     required TResult Function(String message) error,
     required TResult Function(String message) success,
+    required TResult Function(String message) deleted,
   }) {
     return initial();
   }
@@ -168,6 +175,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function()? empty,
     TResult? Function(String message)? error,
     TResult? Function(String message)? success,
+    TResult? Function(String message)? deleted,
   }) {
     return initial?.call();
   }
@@ -182,6 +190,7 @@ class _$InitialImpl implements _Initial {
     TResult Function()? empty,
     TResult Function(String message)? error,
     TResult Function(String message)? success,
+    TResult Function(String message)? deleted,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -200,6 +209,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function(_Empty value) empty,
     required TResult Function(_Error value) error,
     required TResult Function(_Success value) success,
+    required TResult Function(_Deleted value) deleted,
   }) {
     return initial(this);
   }
@@ -214,6 +224,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function(_Empty value)? empty,
     TResult? Function(_Error value)? error,
     TResult? Function(_Success value)? success,
+    TResult? Function(_Deleted value)? deleted,
   }) {
     return initial?.call(this);
   }
@@ -228,6 +239,7 @@ class _$InitialImpl implements _Initial {
     TResult Function(_Empty value)? empty,
     TResult Function(_Error value)? error,
     TResult Function(_Success value)? success,
+    TResult Function(_Deleted value)? deleted,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -318,6 +330,7 @@ class _$LoadingImpl implements _Loading {
     required TResult Function() empty,
     required TResult Function(String message) error,
     required TResult Function(String message) success,
+    required TResult Function(String message) deleted,
   }) {
     return loading(showLoading);
   }
@@ -332,6 +345,7 @@ class _$LoadingImpl implements _Loading {
     TResult? Function()? empty,
     TResult? Function(String message)? error,
     TResult? Function(String message)? success,
+    TResult? Function(String message)? deleted,
   }) {
     return loading?.call(showLoading);
   }
@@ -346,6 +360,7 @@ class _$LoadingImpl implements _Loading {
     TResult Function()? empty,
     TResult Function(String message)? error,
     TResult Function(String message)? success,
+    TResult Function(String message)? deleted,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -364,6 +379,7 @@ class _$LoadingImpl implements _Loading {
     required TResult Function(_Empty value) empty,
     required TResult Function(_Error value) error,
     required TResult Function(_Success value) success,
+    required TResult Function(_Deleted value) deleted,
   }) {
     return loading(this);
   }
@@ -378,6 +394,7 @@ class _$LoadingImpl implements _Loading {
     TResult? Function(_Empty value)? empty,
     TResult? Function(_Error value)? error,
     TResult? Function(_Success value)? success,
+    TResult? Function(_Deleted value)? deleted,
   }) {
     return loading?.call(this);
   }
@@ -392,6 +409,7 @@ class _$LoadingImpl implements _Loading {
     TResult Function(_Empty value)? empty,
     TResult Function(_Error value)? error,
     TResult Function(_Success value)? success,
+    TResult Function(_Deleted value)? deleted,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -494,6 +512,7 @@ class _$LoadedImpl implements _Loaded {
     required TResult Function() empty,
     required TResult Function(String message) error,
     required TResult Function(String message) success,
+    required TResult Function(String message) deleted,
   }) {
     return loaded(items);
   }
@@ -508,6 +527,7 @@ class _$LoadedImpl implements _Loaded {
     TResult? Function()? empty,
     TResult? Function(String message)? error,
     TResult? Function(String message)? success,
+    TResult? Function(String message)? deleted,
   }) {
     return loaded?.call(items);
   }
@@ -522,6 +542,7 @@ class _$LoadedImpl implements _Loaded {
     TResult Function()? empty,
     TResult Function(String message)? error,
     TResult Function(String message)? success,
+    TResult Function(String message)? deleted,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -540,6 +561,7 @@ class _$LoadedImpl implements _Loaded {
     required TResult Function(_Empty value) empty,
     required TResult Function(_Error value) error,
     required TResult Function(_Success value) success,
+    required TResult Function(_Deleted value) deleted,
   }) {
     return loaded(this);
   }
@@ -554,6 +576,7 @@ class _$LoadedImpl implements _Loaded {
     TResult? Function(_Empty value)? empty,
     TResult? Function(_Error value)? error,
     TResult? Function(_Success value)? success,
+    TResult? Function(_Deleted value)? deleted,
   }) {
     return loaded?.call(this);
   }
@@ -568,6 +591,7 @@ class _$LoadedImpl implements _Loaded {
     TResult Function(_Empty value)? empty,
     TResult Function(_Error value)? error,
     TResult Function(_Success value)? success,
+    TResult Function(_Deleted value)? deleted,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -676,6 +700,7 @@ class _$SingleLoadedImpl implements _SingleLoaded {
     required TResult Function() empty,
     required TResult Function(String message) error,
     required TResult Function(String message) success,
+    required TResult Function(String message) deleted,
   }) {
     return singleLoaded(item);
   }
@@ -690,6 +715,7 @@ class _$SingleLoadedImpl implements _SingleLoaded {
     TResult? Function()? empty,
     TResult? Function(String message)? error,
     TResult? Function(String message)? success,
+    TResult? Function(String message)? deleted,
   }) {
     return singleLoaded?.call(item);
   }
@@ -704,6 +730,7 @@ class _$SingleLoadedImpl implements _SingleLoaded {
     TResult Function()? empty,
     TResult Function(String message)? error,
     TResult Function(String message)? success,
+    TResult Function(String message)? deleted,
     required TResult orElse(),
   }) {
     if (singleLoaded != null) {
@@ -722,6 +749,7 @@ class _$SingleLoadedImpl implements _SingleLoaded {
     required TResult Function(_Empty value) empty,
     required TResult Function(_Error value) error,
     required TResult Function(_Success value) success,
+    required TResult Function(_Deleted value) deleted,
   }) {
     return singleLoaded(this);
   }
@@ -736,6 +764,7 @@ class _$SingleLoadedImpl implements _SingleLoaded {
     TResult? Function(_Empty value)? empty,
     TResult? Function(_Error value)? error,
     TResult? Function(_Success value)? success,
+    TResult? Function(_Deleted value)? deleted,
   }) {
     return singleLoaded?.call(this);
   }
@@ -750,6 +779,7 @@ class _$SingleLoadedImpl implements _SingleLoaded {
     TResult Function(_Empty value)? empty,
     TResult Function(_Error value)? error,
     TResult Function(_Success value)? success,
+    TResult Function(_Deleted value)? deleted,
     required TResult orElse(),
   }) {
     if (singleLoaded != null) {
@@ -819,6 +849,7 @@ class _$EmptyImpl implements _Empty {
     required TResult Function() empty,
     required TResult Function(String message) error,
     required TResult Function(String message) success,
+    required TResult Function(String message) deleted,
   }) {
     return empty();
   }
@@ -833,6 +864,7 @@ class _$EmptyImpl implements _Empty {
     TResult? Function()? empty,
     TResult? Function(String message)? error,
     TResult? Function(String message)? success,
+    TResult? Function(String message)? deleted,
   }) {
     return empty?.call();
   }
@@ -847,6 +879,7 @@ class _$EmptyImpl implements _Empty {
     TResult Function()? empty,
     TResult Function(String message)? error,
     TResult Function(String message)? success,
+    TResult Function(String message)? deleted,
     required TResult orElse(),
   }) {
     if (empty != null) {
@@ -865,6 +898,7 @@ class _$EmptyImpl implements _Empty {
     required TResult Function(_Empty value) empty,
     required TResult Function(_Error value) error,
     required TResult Function(_Success value) success,
+    required TResult Function(_Deleted value) deleted,
   }) {
     return empty(this);
   }
@@ -879,6 +913,7 @@ class _$EmptyImpl implements _Empty {
     TResult? Function(_Empty value)? empty,
     TResult? Function(_Error value)? error,
     TResult? Function(_Success value)? success,
+    TResult? Function(_Deleted value)? deleted,
   }) {
     return empty?.call(this);
   }
@@ -893,6 +928,7 @@ class _$EmptyImpl implements _Empty {
     TResult Function(_Empty value)? empty,
     TResult Function(_Error value)? error,
     TResult Function(_Success value)? success,
+    TResult Function(_Deleted value)? deleted,
     required TResult orElse(),
   }) {
     if (empty != null) {
@@ -981,6 +1017,7 @@ class _$ErrorImpl implements _Error {
     required TResult Function() empty,
     required TResult Function(String message) error,
     required TResult Function(String message) success,
+    required TResult Function(String message) deleted,
   }) {
     return error(message);
   }
@@ -995,6 +1032,7 @@ class _$ErrorImpl implements _Error {
     TResult? Function()? empty,
     TResult? Function(String message)? error,
     TResult? Function(String message)? success,
+    TResult? Function(String message)? deleted,
   }) {
     return error?.call(message);
   }
@@ -1009,6 +1047,7 @@ class _$ErrorImpl implements _Error {
     TResult Function()? empty,
     TResult Function(String message)? error,
     TResult Function(String message)? success,
+    TResult Function(String message)? deleted,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -1027,6 +1066,7 @@ class _$ErrorImpl implements _Error {
     required TResult Function(_Empty value) empty,
     required TResult Function(_Error value) error,
     required TResult Function(_Success value) success,
+    required TResult Function(_Deleted value) deleted,
   }) {
     return error(this);
   }
@@ -1041,6 +1081,7 @@ class _$ErrorImpl implements _Error {
     TResult? Function(_Empty value)? empty,
     TResult? Function(_Error value)? error,
     TResult? Function(_Success value)? success,
+    TResult? Function(_Deleted value)? deleted,
   }) {
     return error?.call(this);
   }
@@ -1055,6 +1096,7 @@ class _$ErrorImpl implements _Error {
     TResult Function(_Empty value)? empty,
     TResult Function(_Error value)? error,
     TResult Function(_Success value)? success,
+    TResult Function(_Deleted value)? deleted,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -1151,6 +1193,7 @@ class _$SuccessImpl implements _Success {
     required TResult Function() empty,
     required TResult Function(String message) error,
     required TResult Function(String message) success,
+    required TResult Function(String message) deleted,
   }) {
     return success(message);
   }
@@ -1165,6 +1208,7 @@ class _$SuccessImpl implements _Success {
     TResult? Function()? empty,
     TResult? Function(String message)? error,
     TResult? Function(String message)? success,
+    TResult? Function(String message)? deleted,
   }) {
     return success?.call(message);
   }
@@ -1179,6 +1223,7 @@ class _$SuccessImpl implements _Success {
     TResult Function()? empty,
     TResult Function(String message)? error,
     TResult Function(String message)? success,
+    TResult Function(String message)? deleted,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -1197,6 +1242,7 @@ class _$SuccessImpl implements _Success {
     required TResult Function(_Empty value) empty,
     required TResult Function(_Error value) error,
     required TResult Function(_Success value) success,
+    required TResult Function(_Deleted value) deleted,
   }) {
     return success(this);
   }
@@ -1211,6 +1257,7 @@ class _$SuccessImpl implements _Success {
     TResult? Function(_Empty value)? empty,
     TResult? Function(_Error value)? error,
     TResult? Function(_Success value)? success,
+    TResult? Function(_Deleted value)? deleted,
   }) {
     return success?.call(this);
   }
@@ -1225,6 +1272,7 @@ class _$SuccessImpl implements _Success {
     TResult Function(_Empty value)? empty,
     TResult Function(_Error value)? error,
     TResult Function(_Success value)? success,
+    TResult Function(_Deleted value)? deleted,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -1243,5 +1291,181 @@ abstract class _Success implements ItemState {
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$DeletedImplCopyWith<$Res> {
+  factory _$$DeletedImplCopyWith(
+          _$DeletedImpl value, $Res Function(_$DeletedImpl) then) =
+      __$$DeletedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String message});
+}
+
+/// @nodoc
+class __$$DeletedImplCopyWithImpl<$Res>
+    extends _$ItemStateCopyWithImpl<$Res, _$DeletedImpl>
+    implements _$$DeletedImplCopyWith<$Res> {
+  __$$DeletedImplCopyWithImpl(
+      _$DeletedImpl _value, $Res Function(_$DeletedImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of ItemState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? message = null,
+  }) {
+    return _then(_$DeletedImpl(
+      null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$DeletedImpl implements _Deleted {
+  const _$DeletedImpl(this.message);
+
+  @override
+  final String message;
+
+  @override
+  String toString() {
+    return 'ItemState.deleted(message: $message)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$DeletedImpl &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, message);
+
+  /// Create a copy of ItemState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DeletedImplCopyWith<_$DeletedImpl> get copyWith =>
+      __$$DeletedImplCopyWithImpl<_$DeletedImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(bool showLoading) loading,
+    required TResult Function(List<Item> items) loaded,
+    required TResult Function(Item item) singleLoaded,
+    required TResult Function() empty,
+    required TResult Function(String message) error,
+    required TResult Function(String message) success,
+    required TResult Function(String message) deleted,
+  }) {
+    return deleted(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(bool showLoading)? loading,
+    TResult? Function(List<Item> items)? loaded,
+    TResult? Function(Item item)? singleLoaded,
+    TResult? Function()? empty,
+    TResult? Function(String message)? error,
+    TResult? Function(String message)? success,
+    TResult? Function(String message)? deleted,
+  }) {
+    return deleted?.call(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(bool showLoading)? loading,
+    TResult Function(List<Item> items)? loaded,
+    TResult Function(Item item)? singleLoaded,
+    TResult Function()? empty,
+    TResult Function(String message)? error,
+    TResult Function(String message)? success,
+    TResult Function(String message)? deleted,
+    required TResult orElse(),
+  }) {
+    if (deleted != null) {
+      return deleted(message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Loaded value) loaded,
+    required TResult Function(_SingleLoaded value) singleLoaded,
+    required TResult Function(_Empty value) empty,
+    required TResult Function(_Error value) error,
+    required TResult Function(_Success value) success,
+    required TResult Function(_Deleted value) deleted,
+  }) {
+    return deleted(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Loaded value)? loaded,
+    TResult? Function(_SingleLoaded value)? singleLoaded,
+    TResult? Function(_Empty value)? empty,
+    TResult? Function(_Error value)? error,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_Deleted value)? deleted,
+  }) {
+    return deleted?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Loaded value)? loaded,
+    TResult Function(_SingleLoaded value)? singleLoaded,
+    TResult Function(_Empty value)? empty,
+    TResult Function(_Error value)? error,
+    TResult Function(_Success value)? success,
+    TResult Function(_Deleted value)? deleted,
+    required TResult orElse(),
+  }) {
+    if (deleted != null) {
+      return deleted(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Deleted implements ItemState {
+  const factory _Deleted(final String message) = _$DeletedImpl;
+
+  String get message;
+
+  /// Create a copy of ItemState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$DeletedImplCopyWith<_$DeletedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
