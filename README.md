@@ -1,5 +1,9 @@
 # pari_technical_test | Flutter | Ahmad Tuflihun
 
+## Links
+- Download APK: [Download](https://github.com/Leguna/pari_technical_test/releases/download/release/ahmad-tuflihun-release.apk)
+- Repository: [GitHub](https://github.com/Leguna/pari_technical_test)
+
 ## Stack:
 
 - Flutter, for UI
@@ -14,7 +18,10 @@
 
 ## How to run app:
 
-1. Clone the repository
+1. Clone the repository to your local machine using the following command:
+    ```bash
+    git clone https://github.com/Leguna/pari_technical_test.git
+    ```
 2. Open the terminal and navigate to the project directory
 3. Run build_runner to generate the necessary files (if changes are made to the models):
     ```bash
