@@ -4,7 +4,12 @@ import 'package:pretty_http_logger/pretty_http_logger.dart';
 
 class ErrorAdapterMiddleware extends MiddlewareContract {
   @override
-  void interceptError(error) {}
+  void interceptError(error) {
+    if (error is Exception) {
+      throw Exception('Please check your internet connection');
+    }
+    throw Exception('Something went wrong');
+  }
 
   @override
   void interceptRequest(RequestData data) {}
