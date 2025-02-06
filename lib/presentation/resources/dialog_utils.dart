@@ -13,50 +13,55 @@ void showAddDialog(BuildContext context) {
   showDialog(
     context: context,
     builder: (context) {
-      return AlertDialog(
-        title: const Text('Add Item'),
-        content: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            TextField(
-                controller: nameController,
-                decoration: const InputDecoration(labelText: 'Name')),
-            TextField(
-                controller: descriptionController,
-                decoration: const InputDecoration(labelText: 'Description')),
-            TextField(
-              controller: priceController,
-              inputFormatters: [
-                FilteringTextInputFormatter.allow(RegExp(r'[0-9.]')),
+      return Center(
+        child: SingleChildScrollView(
+          child: AlertDialog(
+            title: const Text('Add Item'),
+            content: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                TextField(
+                    controller: nameController,
+                    decoration: const InputDecoration(labelText: 'Name')),
+                TextField(
+                    controller: descriptionController,
+                    decoration: const InputDecoration(labelText: 'Description')),
+                TextField(
+                  controller: priceController,
+                  inputFormatters: [
+                    FilteringTextInputFormatter.allow(RegExp(r'[0-9.]')),
+                  ],
+                  decoration: const InputDecoration(labelText: 'Price'),
+                  keyboardType: TextInputType.number,
+                ),
               ],
-              decoration: const InputDecoration(labelText: 'Price'),
-              keyboardType: TextInputType.number,
             ),
-          ],
+            actions: [
+              TextButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: const Text('Cancel'),
+              ),
+              TextButton(
+                onPressed: () {
+                  cubit.addItem(
+                    nameController.text,
+                    descriptionController.text,
+                    priceController.text,
+                  );
+                  Navigator.pop(context);
+                },
+                child: const Text('Add'),
+              ),
+            ],
+          ),
         ),
-        actions: [
-          TextButton(
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            child: const Text('Cancel'),
-          ),
-          TextButton(
-            onPressed: () {
-              cubit.addItem(
-                nameController.text,
-                descriptionController.text,
-                priceController.text,
-              );
-              Navigator.pop(context);
-            },
-            child: const Text('Add'),
-          ),
-        ],
       );
     },
   );
 }
+
 void showUpdateDialog(Item item, BuildContext context) {
   final cubit = context.read<ItemCubit>();
   TextEditingController nameController =
@@ -68,72 +73,81 @@ void showUpdateDialog(Item item, BuildContext context) {
   showDialog(
     context: context,
     builder: (context) {
-      return AlertDialog(
-        title: const Text('Update Item'),
-        content: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            TextField(
-                controller: nameController,
-                decoration: const InputDecoration(labelText: 'Name')),
-            TextField(
-                controller: descriptionController,
-                decoration: const InputDecoration(labelText: 'Description')),
-            TextField(
-              controller: priceController,
-              decoration: const InputDecoration(labelText: 'Price'),
-              inputFormatters: [
-                FilteringTextInputFormatter.allow(RegExp(r'[0-9.]')),
+      return Center(
+        child: SingleChildScrollView(
+          child: AlertDialog(
+            title: const Text('Update Item'),
+            content: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                TextField(
+                    controller: nameController,
+                    decoration: const InputDecoration(labelText: 'Name')),
+                TextField(
+                    controller: descriptionController,
+                    decoration: const InputDecoration(labelText: 'Description')),
+                TextField(
+                  controller: priceController,
+                  decoration: const InputDecoration(labelText: 'Price'),
+                  inputFormatters: [
+                    FilteringTextInputFormatter.allow(RegExp(r'[0-9.]')),
+                  ],
+                  keyboardType: TextInputType.number,
+                ),
               ],
-              keyboardType: TextInputType.number,
             ),
-          ],
+            actions: [
+              TextButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: const Text('Cancel'),
+              ),
+              TextButton(
+                onPressed: () {
+                  cubit.updateItem(
+                    item.id,
+                    nameController.text,
+                    descriptionController.text,
+                    priceController.text,
+                  );
+                  Navigator.pop(context);
+                },
+                child: const Text('Update'),
+              ),
+            ],
+          ),
         ),
-        actions: [
-          TextButton(
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            child: const Text('Cancel'),
-          ),
-          TextButton(
-            onPressed: () {
-              cubit.updateItem(
-                item.id,
-                nameController.text,
-                descriptionController.text,
-                priceController.text,
-              );
-              Navigator.pop(context);
-            },
-            child: const Text('Update'),
-          ),
-        ],
       );
     },
   );
 }
+
 void showDeleteDialog(Item item, BuildContext context) {
   final cubit = context.read<ItemCubit>();
   showDialog(
     context: context,
     builder: (context) {
-      return AlertDialog(
-        title: const Text('Delete Item'),
-        content: const Text('Are you sure you want to delete this item?'),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(context),
-            child: const Text('Cancel'),
+      return Center(
+        child: SingleChildScrollView(
+          child: AlertDialog(
+            title: const Text('Delete Item'),
+            content: const Text('Are you sure you want to delete this item?'),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.pop(context),
+                child: const Text('Cancel'),
+              ),
+              TextButton(
+                onPressed: () {
+                  cubit.deleteItem(item.id);
+                  Navigator.pop(context);
+                },
+                child: const Text('Delete'),
+              ),
+            ],
           ),
-          TextButton(
-            onPressed: () {
-              cubit.deleteItem(item.id);
-              Navigator.pop(context);
-            },
-            child: const Text('Delete'),
-          ),
-        ],
+        ),
       );
     },
   );

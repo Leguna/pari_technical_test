@@ -83,8 +83,12 @@ class DetailScreen extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('ID: ${item.id.isEmpty ? '-' : item.id}',
-                          style: const TextStyle(fontSize: 16)),
+                      Wrap(
+                        children: [
+                              Text('ID: ${item.id.isEmpty ? '-' : item.id}',
+                              style: const TextStyle(fontSize: 16)),
+                            ],
+                      ),
                       Wrap(
                         children: [
                           Text(

@@ -52,23 +52,29 @@ class HomeScreen extends StatelessWidget {
                     onPressed: () => showDialog(
                       context: context,
                       builder: (context) {
-                        return AlertDialog(
-                          title: const Text('Delete all added items?'),
-                          actions: [
-                            TextButton(
-                              onPressed: () {
-                                cubit.clearAddedItems();
-                                Navigator.pop(context);
-                              },
-                              child: const Text('Yes'),
+                        return Center(
+                          child: SingleChildScrollView(
+                            child: AlertDialog(
+                              title: const Text('Delete all added items?'),
+                              content: const Text(
+                                  'This action will delete all added items. Are you sure?'),
+                              actions: [
+                                TextButton(
+                                  onPressed: () {
+                                    cubit.clearAddedItems();
+                                    Navigator.pop(context);
+                                  },
+                                  child: const Text('Yes'),
+                                ),
+                                TextButton(
+                                  onPressed: () {
+                                    Navigator.pop(context);
+                                  },
+                                  child: const Text('No'),
+                                ),
+                              ],
                             ),
-                            TextButton(
-                              onPressed: () {
-                                Navigator.pop(context);
-                              },
-                              child: const Text('No'),
-                            ),
-                          ],
+                          ),
                         );
                       },
                     ),
