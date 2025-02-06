@@ -4,7 +4,7 @@ import 'package:pari_technical_test/data/data_source/error_middleware.dart';
 import 'package:pari_technical_test/data/data_source/local_database.dart';
 import 'package:pretty_http_logger/pretty_http_logger.dart';
 
-import '../models/item_mdl.dart';
+import '../../core/models/item_mdl.dart';
 
 class ItemRepository {
   final LocalDatabase localDatabase = LocalDatabase();

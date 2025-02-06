@@ -1,9 +1,9 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../core/error_utils.dart';
+import '../../core/models/item_mdl.dart';
+import '../../core/resources/error_utils.dart';
 import '../../data/data_source/item_repository.dart';
-import '../../data/models/item_mdl.dart';
 import '../../main.dart';
 
 part 'item_cubit.freezed.dart';

@@ -1,5 +1,16 @@
 # pari_technical_test | Flutter | Ahmad Tuflihun
 
+Stack:
+- Flutter, for UI
+- Bloc, for state management
+- http, for API calls
+- Go Router, for navigation
+- hive, for local storage
+- freezed, for immutability and equality
+- json_annotation, for JSON serialization
+- get_it, for dependency injection
+- build_runner, for code generation
+
 How to run app:
 
 1. Clone the repository

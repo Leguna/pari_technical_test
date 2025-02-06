@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pari_technical_test/presentation/widgets/my_app_bar.dart';
 
-import '../../data/models/item_mdl.dart';
+import '../../core/models/item_mdl.dart';
 import '../../domain/bloc/item_cubit.dart';
 
 class DetailScreen extends StatelessWidget {

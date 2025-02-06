@@ -10,7 +10,7 @@ import 'domain/bloc/item_cubit.dart';
 import 'presentation/screens/home_screen.dart';
 
 final getIt = GetIt.instance;
-const String appTitle = 'PARI Technical Test Ahmad Tuflihun';
+const String appTitle = 'Technical Test Ahmad Tuflihun';
 final GoRouter router = GoRouter(
   routes: [
     GoRoute(

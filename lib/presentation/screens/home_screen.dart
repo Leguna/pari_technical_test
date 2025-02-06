@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pari_technical_test/domain/bloc/item_cubit.dart';
 
-import '../../data/models/item_mdl.dart';
+import '../../core/models/item_mdl.dart';
 import '../../main.dart';
 import '../widgets/my_app_bar.dart';
 
