@@ -23,6 +23,10 @@ mixin _$Item {
   String get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   Data? get data => throw _privateConstructorUsedError;
+  @JsonKey(name: "createdAt")
+  String? get createdAt => throw _privateConstructorUsedError;
+  @JsonKey(name: "updatedAt")
+  String? get updatedAt => throw _privateConstructorUsedError;
 
   /// Serializes this Item to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -38,7 +42,12 @@ abstract class $ItemCopyWith<$Res> {
   factory $ItemCopyWith(Item value, $Res Function(Item) then) =
       _$ItemCopyWithImpl<$Res, Item>;
   @useResult
-  $Res call({String id, String name, Data? data});
+  $Res call(
+      {String id,
+      String name,
+      Data? data,
+      @JsonKey(name: "createdAt") String? createdAt,
+      @JsonKey(name: "updatedAt") String? updatedAt});
 
   $DataCopyWith<$Res>? get data;
 }
@@ -61,6 +70,8 @@ class _$ItemCopyWithImpl<$Res, $Val extends Item>
     Object? id = null,
     Object? name = null,
     Object? data = freezed,
+    Object? createdAt = freezed,
+    Object? updatedAt = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -75,6 +86,14 @@ class _$ItemCopyWithImpl<$Res, $Val extends Item>
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as Data?,
+      createdAt: freezed == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as String?,
+      updatedAt: freezed == updatedAt
+          ? _value.updatedAt
+          : updatedAt // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 
@@ -100,7 +119,12 @@ abstract class _$$ItemImplCopyWith<$Res> implements $ItemCopyWith<$Res> {
       __$$ItemImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String id, String name, Data? data});
+  $Res call(
+      {String id,
+      String name,
+      Data? data,
+      @JsonKey(name: "createdAt") String? createdAt,
+      @JsonKey(name: "updatedAt") String? updatedAt});
 
   @override
   $DataCopyWith<$Res>? get data;
@@ -121,6 +145,8 @@ class __$$ItemImplCopyWithImpl<$Res>
     Object? id = null,
     Object? name = null,
     Object? data = freezed,
+    Object? createdAt = freezed,
+    Object? updatedAt = freezed,
   }) {
     return _then(_$ItemImpl(
       id: null == id
@@ -135,6 +161,14 @@ class __$$ItemImplCopyWithImpl<$Res>
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as Data?,
+      createdAt: freezed == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as String?,
+      updatedAt: freezed == updatedAt
+          ? _value.updatedAt
+          : updatedAt // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -142,7 +176,12 @@ class __$$ItemImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$ItemImpl implements _Item {
-  const _$ItemImpl({this.id = '', this.name = '', this.data});
+  const _$ItemImpl(
+      {this.id = '',
+      this.name = '',
+      this.data,
+      @JsonKey(name: "createdAt") this.createdAt,
+      @JsonKey(name: "updatedAt") this.updatedAt});
 
   factory _$ItemImpl.fromJson(Map<String, dynamic> json) =>
       _$$ItemImplFromJson(json);
@@ -155,10 +194,16 @@ class _$ItemImpl implements _Item {
   final String name;
   @override
   final Data? data;
+  @override
+  @JsonKey(name: "createdAt")
+  final String? createdAt;
+  @override
+  @JsonKey(name: "updatedAt")
+  final String? updatedAt;
 
   @override
   String toString() {
-    return 'Item(id: $id, name: $name, data: $data)';
+    return 'Item(id: $id, name: $name, data: $data, createdAt: $createdAt, updatedAt: $updatedAt)';
   }
 
   @override
@@ -168,12 +213,17 @@ class _$ItemImpl implements _Item {
             other is _$ItemImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
-            (identical(other.data, data) || other.data == data));
+            (identical(other.data, data) || other.data == data) &&
+            (identical(other.createdAt, createdAt) ||
+                other.createdAt == createdAt) &&
+            (identical(other.updatedAt, updatedAt) ||
+                other.updatedAt == updatedAt));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, id, name, data);
+  int get hashCode =>
+      Object.hash(runtimeType, id, name, data, createdAt, updatedAt);
 
   /// Create a copy of Item
   /// with the given fields replaced by the non-null parameter values.
@@ -192,8 +242,12 @@ class _$ItemImpl implements _Item {
 }
 
 abstract class _Item implements Item {
-  const factory _Item({final String id, final String name, final Data? data}) =
-      _$ItemImpl;
+  const factory _Item(
+      {final String id,
+      final String name,
+      final Data? data,
+      @JsonKey(name: "createdAt") final String? createdAt,
+      @JsonKey(name: "updatedAt") final String? updatedAt}) = _$ItemImpl;
 
   factory _Item.fromJson(Map<String, dynamic> json) = _$ItemImpl.fromJson;
 
@@ -203,6 +257,12 @@ abstract class _Item implements Item {
   String get name;
   @override
   Data? get data;
+  @override
+  @JsonKey(name: "createdAt")
+  String? get createdAt;
+  @override
+  @JsonKey(name: "updatedAt")
+  String? get updatedAt;
 
   /// Create a copy of Item
   /// with the given fields replaced by the non-null parameter values.
@@ -226,6 +286,8 @@ mixin _$Data {
   int? get capacityGb => throw _privateConstructorUsedError;
   @JsonKey(name: "price")
   double? get dataPrice => throw _privateConstructorUsedError;
+  @JsonKey(name: "Price")
+  String? get price => throw _privateConstructorUsedError;
   @JsonKey(name: "generation")
   String? get dataGeneration => throw _privateConstructorUsedError;
   @JsonKey(name: "year")
@@ -248,8 +310,6 @@ mixin _$Data {
   double? get screenSize => throw _privateConstructorUsedError;
   @JsonKey(name: "Generation")
   String? get generation => throw _privateConstructorUsedError;
-  @JsonKey(name: "Price")
-  String? get price => throw _privateConstructorUsedError;
 
   /// Serializes this Data to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -270,6 +330,7 @@ abstract class $DataCopyWith<$Res> {
       @JsonKey(name: "capacity") String? dataCapacity,
       @JsonKey(name: "capacity GB") int? capacityGb,
       @JsonKey(name: "price") double? dataPrice,
+      @JsonKey(name: "Price") String? price,
       @JsonKey(name: "generation") String? dataGeneration,
       @JsonKey(name: "year") int? year,
       @JsonKey(name: "CPU model") String? cpuModel,
@@ -280,8 +341,7 @@ abstract class $DataCopyWith<$Res> {
       @JsonKey(name: "Description") String? description,
       @JsonKey(name: "Capacity") String? capacity,
       @JsonKey(name: "Screen size") double? screenSize,
-      @JsonKey(name: "Generation") String? generation,
-      @JsonKey(name: "Price") String? price});
+      @JsonKey(name: "Generation") String? generation});
 }
 
 /// @nodoc
@@ -303,6 +363,7 @@ class _$DataCopyWithImpl<$Res, $Val extends Data>
     Object? dataCapacity = freezed,
     Object? capacityGb = freezed,
     Object? dataPrice = freezed,
+    Object? price = freezed,
     Object? dataGeneration = freezed,
     Object? year = freezed,
     Object? cpuModel = freezed,
@@ -314,7 +375,6 @@ class _$DataCopyWithImpl<$Res, $Val extends Data>
     Object? capacity = freezed,
     Object? screenSize = freezed,
     Object? generation = freezed,
-    Object? price = freezed,
   }) {
     return _then(_value.copyWith(
       dataColor: freezed == dataColor
@@ -333,6 +393,10 @@ class _$DataCopyWithImpl<$Res, $Val extends Data>
           ? _value.dataPrice
           : dataPrice // ignore: cast_nullable_to_non_nullable
               as double?,
+      price: freezed == price
+          ? _value.price
+          : price // ignore: cast_nullable_to_non_nullable
+              as String?,
       dataGeneration: freezed == dataGeneration
           ? _value.dataGeneration
           : dataGeneration // ignore: cast_nullable_to_non_nullable
@@ -377,10 +441,6 @@ class _$DataCopyWithImpl<$Res, $Val extends Data>
           ? _value.generation
           : generation // ignore: cast_nullable_to_non_nullable
               as String?,
-      price: freezed == price
-          ? _value.price
-          : price // ignore: cast_nullable_to_non_nullable
-              as String?,
     ) as $Val);
   }
 }
@@ -397,6 +457,7 @@ abstract class _$$DataImplCopyWith<$Res> implements $DataCopyWith<$Res> {
       @JsonKey(name: "capacity") String? dataCapacity,
       @JsonKey(name: "capacity GB") int? capacityGb,
       @JsonKey(name: "price") double? dataPrice,
+      @JsonKey(name: "Price") String? price,
       @JsonKey(name: "generation") String? dataGeneration,
       @JsonKey(name: "year") int? year,
       @JsonKey(name: "CPU model") String? cpuModel,
@@ -407,8 +468,7 @@ abstract class _$$DataImplCopyWith<$Res> implements $DataCopyWith<$Res> {
       @JsonKey(name: "Description") String? description,
       @JsonKey(name: "Capacity") String? capacity,
       @JsonKey(name: "Screen size") double? screenSize,
-      @JsonKey(name: "Generation") String? generation,
-      @JsonKey(name: "Price") String? price});
+      @JsonKey(name: "Generation") String? generation});
 }
 
 /// @nodoc
@@ -427,6 +487,7 @@ class __$$DataImplCopyWithImpl<$Res>
     Object? dataCapacity = freezed,
     Object? capacityGb = freezed,
     Object? dataPrice = freezed,
+    Object? price = freezed,
     Object? dataGeneration = freezed,
     Object? year = freezed,
     Object? cpuModel = freezed,
@@ -438,7 +499,6 @@ class __$$DataImplCopyWithImpl<$Res>
     Object? capacity = freezed,
     Object? screenSize = freezed,
     Object? generation = freezed,
-    Object? price = freezed,
   }) {
     return _then(_$DataImpl(
       dataColor: freezed == dataColor
@@ -457,6 +517,10 @@ class __$$DataImplCopyWithImpl<$Res>
           ? _value.dataPrice
           : dataPrice // ignore: cast_nullable_to_non_nullable
               as double?,
+      price: freezed == price
+          ? _value.price
+          : price // ignore: cast_nullable_to_non_nullable
+              as String?,
       dataGeneration: freezed == dataGeneration
           ? _value.dataGeneration
           : dataGeneration // ignore: cast_nullable_to_non_nullable
@@ -501,22 +565,19 @@ class __$$DataImplCopyWithImpl<$Res>
           ? _value.generation
           : generation // ignore: cast_nullable_to_non_nullable
               as String?,
-      price: freezed == price
-          ? _value.price
-          : price // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$DataImpl implements _Data {
+class _$DataImpl extends _Data {
   const _$DataImpl(
       {@JsonKey(name: "color") this.dataColor,
       @JsonKey(name: "capacity") this.dataCapacity,
       @JsonKey(name: "capacity GB") this.capacityGb,
       @JsonKey(name: "price") this.dataPrice,
+      @JsonKey(name: "Price") this.price,
       @JsonKey(name: "generation") this.dataGeneration,
       @JsonKey(name: "year") this.year,
       @JsonKey(name: "CPU model") this.cpuModel,
@@ -527,8 +588,8 @@ class _$DataImpl implements _Data {
       @JsonKey(name: "Description") this.description,
       @JsonKey(name: "Capacity") this.capacity,
       @JsonKey(name: "Screen size") this.screenSize,
-      @JsonKey(name: "Generation") this.generation,
-      @JsonKey(name: "Price") this.price});
+      @JsonKey(name: "Generation") this.generation})
+      : super._();
 
   factory _$DataImpl.fromJson(Map<String, dynamic> json) =>
       _$$DataImplFromJson(json);
@@ -545,6 +606,9 @@ class _$DataImpl implements _Data {
   @override
   @JsonKey(name: "price")
   final double? dataPrice;
+  @override
+  @JsonKey(name: "Price")
+  final String? price;
   @override
   @JsonKey(name: "generation")
   final String? dataGeneration;
@@ -578,13 +642,10 @@ class _$DataImpl implements _Data {
   @override
   @JsonKey(name: "Generation")
   final String? generation;
-  @override
-  @JsonKey(name: "Price")
-  final String? price;
 
   @override
   String toString() {
-    return 'Data(dataColor: $dataColor, dataCapacity: $dataCapacity, capacityGb: $capacityGb, dataPrice: $dataPrice, dataGeneration: $dataGeneration, year: $year, cpuModel: $cpuModel, hardDiskSize: $hardDiskSize, strapColour: $strapColour, caseSize: $caseSize, color: $color, description: $description, capacity: $capacity, screenSize: $screenSize, generation: $generation, price: $price)';
+    return 'Data(dataColor: $dataColor, dataCapacity: $dataCapacity, capacityGb: $capacityGb, dataPrice: $dataPrice, price: $price, dataGeneration: $dataGeneration, year: $year, cpuModel: $cpuModel, hardDiskSize: $hardDiskSize, strapColour: $strapColour, caseSize: $caseSize, color: $color, description: $description, capacity: $capacity, screenSize: $screenSize, generation: $generation)';
   }
 
   @override
@@ -600,6 +661,7 @@ class _$DataImpl implements _Data {
                 other.capacityGb == capacityGb) &&
             (identical(other.dataPrice, dataPrice) ||
                 other.dataPrice == dataPrice) &&
+            (identical(other.price, price) || other.price == price) &&
             (identical(other.dataGeneration, dataGeneration) ||
                 other.dataGeneration == dataGeneration) &&
             (identical(other.year, year) || other.year == year) &&
@@ -619,8 +681,7 @@ class _$DataImpl implements _Data {
             (identical(other.screenSize, screenSize) ||
                 other.screenSize == screenSize) &&
             (identical(other.generation, generation) ||
-                other.generation == generation) &&
-            (identical(other.price, price) || other.price == price));
+                other.generation == generation));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -631,6 +692,7 @@ class _$DataImpl implements _Data {
       dataCapacity,
       capacityGb,
       dataPrice,
+      price,
       dataGeneration,
       year,
       cpuModel,
@@ -641,8 +703,7 @@ class _$DataImpl implements _Data {
       description,
       capacity,
       screenSize,
-      generation,
-      price);
+      generation);
 
   /// Create a copy of Data
   /// with the given fields replaced by the non-null parameter values.
@@ -660,12 +721,13 @@ class _$DataImpl implements _Data {
   }
 }
 
-abstract class _Data implements Data {
+abstract class _Data extends Data {
   const factory _Data(
       {@JsonKey(name: "color") final String? dataColor,
       @JsonKey(name: "capacity") final String? dataCapacity,
       @JsonKey(name: "capacity GB") final int? capacityGb,
       @JsonKey(name: "price") final double? dataPrice,
+      @JsonKey(name: "Price") final String? price,
       @JsonKey(name: "generation") final String? dataGeneration,
       @JsonKey(name: "year") final int? year,
       @JsonKey(name: "CPU model") final String? cpuModel,
@@ -676,8 +738,8 @@ abstract class _Data implements Data {
       @JsonKey(name: "Description") final String? description,
       @JsonKey(name: "Capacity") final String? capacity,
       @JsonKey(name: "Screen size") final double? screenSize,
-      @JsonKey(name: "Generation") final String? generation,
-      @JsonKey(name: "Price") final String? price}) = _$DataImpl;
+      @JsonKey(name: "Generation") final String? generation}) = _$DataImpl;
+  const _Data._() : super._();
 
   factory _Data.fromJson(Map<String, dynamic> json) = _$DataImpl.fromJson;
 
@@ -693,6 +755,9 @@ abstract class _Data implements Data {
   @override
   @JsonKey(name: "price")
   double? get dataPrice;
+  @override
+  @JsonKey(name: "Price")
+  String? get price;
   @override
   @JsonKey(name: "generation")
   String? get dataGeneration;
@@ -726,9 +791,6 @@ abstract class _Data implements Data {
   @override
   @JsonKey(name: "Generation")
   String? get generation;
-  @override
-  @JsonKey(name: "Price")
-  String? get price;
 
   /// Create a copy of Data
   /// with the given fields replaced by the non-null parameter values.

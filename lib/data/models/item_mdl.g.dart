@@ -12,6 +12,8 @@ _$ItemImpl _$$ItemImplFromJson(Map<String, dynamic> json) => _$ItemImpl(
       data: json['data'] == null
           ? null
           : Data.fromJson(json['data'] as Map<String, dynamic>),
+      createdAt: json['createdAt'] as String?,
+      updatedAt: json['updatedAt'] as String?,
     );
 
 Map<String, dynamic> _$$ItemImplToJson(_$ItemImpl instance) =>
@@ -19,6 +21,8 @@ Map<String, dynamic> _$$ItemImplToJson(_$ItemImpl instance) =>
       'id': instance.id,
       'name': instance.name,
       'data': instance.data,
+      'createdAt': instance.createdAt,
+      'updatedAt': instance.updatedAt,
     };
 
 _$DataImpl _$$DataImplFromJson(Map<String, dynamic> json) => _$DataImpl(
@@ -26,6 +30,7 @@ _$DataImpl _$$DataImplFromJson(Map<String, dynamic> json) => _$DataImpl(
       dataCapacity: json['capacity'] as String?,
       capacityGb: (json['capacity GB'] as num?)?.toInt(),
       dataPrice: (json['price'] as num?)?.toDouble(),
+      price: json['Price'] as String?,
       dataGeneration: json['generation'] as String?,
       year: (json['year'] as num?)?.toInt(),
       cpuModel: json['CPU model'] as String?,
@@ -37,7 +42,6 @@ _$DataImpl _$$DataImplFromJson(Map<String, dynamic> json) => _$DataImpl(
       capacity: json['Capacity'] as String?,
       screenSize: (json['Screen size'] as num?)?.toDouble(),
       generation: json['Generation'] as String?,
-      price: json['Price'] as String?,
     );
 
 Map<String, dynamic> _$$DataImplToJson(_$DataImpl instance) =>
@@ -46,6 +50,7 @@ Map<String, dynamic> _$$DataImplToJson(_$DataImpl instance) =>
       'capacity': instance.dataCapacity,
       'capacity GB': instance.capacityGb,
       'price': instance.dataPrice,
+      'Price': instance.price,
       'generation': instance.dataGeneration,
       'year': instance.year,
       'CPU model': instance.cpuModel,
@@ -57,5 +62,4 @@ Map<String, dynamic> _$$DataImplToJson(_$DataImpl instance) =>
       'Capacity': instance.capacity,
       'Screen size': instance.screenSize,
       'Generation': instance.generation,
-      'Price': instance.price,
     };
