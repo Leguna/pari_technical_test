@@ -17,4 +17,6 @@ class ItemState with _$ItemState {
   const factory ItemState.error(String message) = _Error;
 
   const factory ItemState.success(String message) = _Success;
+
+  const factory ItemState.deleted(String message) = _Deleted;
 }

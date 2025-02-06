@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pari_technical_test/presentation/widgets/my_app_bar.dart';
+import 'package:pari_technical_test/presentation/widgets/my_loading.dart';
 
 import '../../core/models/item_mdl.dart';
 import '../../domain/bloc/item_cubit.dart';
+import '../resources/dialog_utils.dart';
 
 class DetailScreen extends StatelessWidget {
   final String id;
@@ -20,6 +22,24 @@ class DetailScreen extends StatelessWidget {
     return BlocConsumer<ItemCubit, ItemState>(
       listener: (context, state) {
         state.maybeWhen(
+          deleted: (message) {
+            Navigator.of(context).pop();
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Text(message),
+                backgroundColor: Colors.green,
+              ),
+            );
+          },
+          success: (message) {
+            ScaffoldMessenger.of(context).clearSnackBars();
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Text(message),
+                backgroundColor: Colors.green,
+              ),
+            );
+          },
           error: (message) {
             ScaffoldMessenger.of(context).clearSnackBars();
             ScaffoldMessenger.of(context).showSnackBar(
@@ -34,11 +54,28 @@ class DetailScreen extends StatelessWidget {
       },
       builder: (context, state) {
         final item = cubit.selectedItem;
+        final isAdded = cubit.isAdded(item);
         return Stack(
           children: [
             Scaffold(
               appBar: MyAppBar(
                 title: Text(item.name.isEmpty ? '-' : item.name),
+                actions: [
+                  IconButton(
+                    icon: const Icon(Icons.refresh),
+                    onPressed: () => cubit.fetchSingleItem(id),
+                  ),
+                  if (isAdded)
+                    IconButton(
+                      icon: const Icon(Icons.edit),
+                      onPressed: () => showUpdateDialog(item, context),
+                    ),
+                  if (isAdded)
+                    IconButton(
+                      icon: const Icon(Icons.delete),
+                      onPressed: () => showDeleteDialog(item, context),
+                    ),
+                ],
               ),
               body: Padding(
                 padding: const EdgeInsets.all(16.0),
@@ -68,14 +105,7 @@ class DetailScreen extends StatelessWidget {
             ),
             state.maybeWhen(
               loading: (showLoading) {
-                return Container(
-                  decoration: const BoxDecoration(
-                    color: Colors.black26,
-                  ),
-                  child: const Center(
-                    child: CircularProgressIndicator(),
-                  ),
-                );
+                return const MyLoading();
               },
               orElse: () => const SizedBox.shrink(),
             ),
@@ -93,7 +123,7 @@ class DetailScreen extends StatelessWidget {
           Text('Capacity: ${data.dataCapacity ?? data.capacity}'),
         if (data.capacityGb != null) Text('Capacity (GB): ${data.capacityGb}'),
         if (data.price != null || data.dataPrice != null)
-          Text('Price: ${data.price ?? data.dataPrice}'),
+          Text('Price: ${data.price ?? data.dataPrice}\$'),
         if (data.dataGeneration != null)
           Text('Generation: ${data.dataGeneration}'),
         if (data.generation != null) Text('Generation: ${data.generation}'),

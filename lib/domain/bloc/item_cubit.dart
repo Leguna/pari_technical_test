@@ -65,12 +65,12 @@ class ItemCubit extends Cubit<ItemState> {
       if (name.isEmpty) {
         throw Exception('Name is required.');
       }
-
       if (name.isEmpty && description.isEmpty && price.isEmpty) {
         throw Exception('All fields are required.');
       }
       final updatedItem =
           await itemRepository.updateItem(id, name, description, price);
+      selectedItem = updatedItem;
       await fetchItems();
       emit(ItemState.success("Item updated: ${updatedItem.name}"));
     } catch (e) {
@@ -83,7 +83,7 @@ class ItemCubit extends Cubit<ItemState> {
     try {
       final message = await itemRepository.deleteItem(id);
       await fetchItems();
-      emit(ItemState.success(message));
+      emit(ItemState.deleted(message));
     } catch (e) {
       emit(ItemState.error(extractErrorMessage(e)));
     }
@@ -97,5 +97,9 @@ class ItemCubit extends Cubit<ItemState> {
     } catch (e) {
       emit(ItemState.error(extractErrorMessage(e)));
     }
+  }
+
+  isAdded(Item item) {
+    return itemsAdded.any((element) => element.id == item.id);
   }
 }
