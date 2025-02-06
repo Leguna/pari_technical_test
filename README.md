@@ -1,6 +1,7 @@
 # pari_technical_test | Flutter | Ahmad Tuflihun
 
-Stack:
+## Stack:
+
 - Flutter, for UI
 - Bloc, for state management
 - http, for API calls
@@ -11,7 +12,7 @@ Stack:
 - get_it, for dependency injection
 - build_runner, for code generation
 
-How to run app:
+## How to run app:
 
 1. Clone the repository
 2. Open the terminal and navigate to the project directory
@@ -27,3 +28,21 @@ How to run app:
     ```bash
     flutter run
     ```
+
+## Running Build Runner
+
+```bash
+dart run build_runner build
+```
+
+## APK Build
+
+```bash
+flutter build apk --target-platform android-arm,android-arm64,android-x64
+```
+
+## APK RELEASE Build
+
+```bash
+flutter build apk --release --target-platform android-arm,android-arm64,android-x64
+```
