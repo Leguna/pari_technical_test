@@ -6,8 +6,9 @@ class MyLoading extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: const BoxDecoration(
-        color: Colors.black12,
+      decoration: BoxDecoration(
+        color: Colors.black.withOpacity(0.5),
+        borderRadius: const BorderRadius.all(Radius.circular(8.0)),
       ),
       child: Center(
         child: Container(
@@ -15,7 +16,6 @@ class MyLoading extends StatelessWidget {
           height: 80.0,
           padding: const EdgeInsets.all(24.0),
           decoration: BoxDecoration(
-            color: Colors.white,
             borderRadius: BorderRadius.circular(8.0),
           ),
           child: const CircularProgressIndicator(),

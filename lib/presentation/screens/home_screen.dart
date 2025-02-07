@@ -4,7 +4,8 @@ import 'package:go_router/go_router.dart';
 import 'package:pari_technical_test/domain/bloc/item_cubit.dart';
 import 'package:pari_technical_test/presentation/widgets/my_loading.dart';
 
-import '../../main.dart';
+import '../../config/route.dart';
+import '../../features/theme/bloc/theme_cubit.dart';
 import '../resources/dialog_utils.dart';
 import '../widgets/my_app_bar.dart';
 
@@ -16,7 +17,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final cubit = context.read<ItemCubit>();
-    context.read<ItemCubit>().fetchItems();
+    cubit.fetchItems();
     return BlocConsumer<ItemCubit, ItemState>(
       listener: (context, state) {
         state.maybeWhen(
@@ -47,6 +48,12 @@ class HomeScreen extends StatelessWidget {
               appBar: MyAppBar(
                 title: Text(title),
                 actions: [
+                  IconButton(
+                    icon: const Icon(Icons.brightness_4),
+                    onPressed: () {
+                      context.read<ThemeCubit>().changeTheme();
+                    },
+                  ),
                   IconButton(
                     icon: const Icon(Icons.clear_all),
                     onPressed: () => showDialog(

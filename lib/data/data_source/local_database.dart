@@ -1,14 +1,11 @@
-import 'dart:io';
 
-import 'package:hive/hive.dart';
-import 'package:path_provider/path_provider.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
 const String mainBox = 'local_database';
 
 class LocalDatabase {
-  init() async {
-    Directory appDocDir = await getApplicationDocumentsDirectory();
-    Hive.init(appDocDir.path);
+  init() {
+    Hive.initFlutter();
     return this;
   }
 
